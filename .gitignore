@@ -34,6 +34,26 @@ bower_components
 # node-waf configuration
 .lock-wscript
 
+# Django Stuff
+*.log
+*.pot
+*.pyc
+__pycache__/
+local_settings.py
+db.sqlite3
+media
+
+# Django Env Stuff
+.env
+.venv
+env/
+venv/
+ENV/
+env.bak/
+
+static
+venv.bak/
+
 # Compiled binary addons (https://nodejs.org/api/addons.html)
 build/Release
 
