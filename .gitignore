@@ -50,11 +50,10 @@ env/
 venv/
 ENV/
 env.bak/
+venv.bak/
 
 # Django collected static files
 memory_game/static
-
-venv.bak/
 
 # Compiled binary addons (https://nodejs.org/api/addons.html)
 build/Release
