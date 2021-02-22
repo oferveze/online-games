@@ -1,0 +1,67 @@
+body { font-family: sans-serif; }
+
+.layout {
+  background-image: linear-gradient(#acb6e5, #86fde8);
+}
+
+.header {
+  background-color: inherit;
+}
+
+img {
+  max-width:100%;
+  max-height:100%;
+}
+
+.board {
+  display: grid;
+  grid-template-columns: auto auto auto;
+  grid-gap: 1rem;
+  padding: 10px;
+  grid-auto-flow: row;
+  grid-template-columns: repeat(6, 1fr);
+}
+
+.scene {
+  background-color: #52CBD3;
+  border-radius: 30px;
+  width: 100%;
+  height: 260px;
+  border: 1px solid #CCC;
+  perspective: 600px;
+}
+
+.game-card {
+  width: 100%;
+  height: 100%;
+  transition: transform 1s;
+  transform-style: preserve-3d;
+  cursor: pointer;
+  position: relative;
+  background-color: none;
+}
+
+.game-card.is-flipped {
+  transform: rotateY(180deg);
+}
+
+.card-face {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  line-height: 260px;
+  text-align: center;
+  font-weight: bold;
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+}
+
+.card-face-front {
+  color:black;
+  transform: rotateY(180deg);
+
+}
+
+.card-face-back {
+  color:black;
+}
