@@ -1,7 +1,14 @@
-import React, { Component, Fragment } from 'react'
+import React, { Component } from 'react'
+import {
+    BrowserRouter as Router,
+    Switch,
+    Route
+} from 'react-router-dom';
 
 import Header from './header/Header'
 import Main from './main/Main';
+import Home from './home/home';
+import Contact from './contact/Contact';
 
 class Layout extends Component {
     constructor(props) {
@@ -13,17 +20,23 @@ class Layout extends Component {
             steps: 0
         };
 
-        this.state = {session: session};
+        this.state = {
+            session: session
+        };
     }
 
     render() {
         return (
-            <div className="layout">
-                <Header session={this.session}/>
-                <div className="container">
-                    <Main session={this.session}/>
+            <Router>
+                <div className="layout">
+                    <Header session={this.session}/>
+                    <Switch>
+                        <Route path="/" exact component={Home} />
+                        <Route path="/contact" exact component={Contact} />
+                        <Route path="/game" exact component={Main} />
+                    </Switch>
                 </div>
-            </div>
+            </Router>
         )
     }
 }

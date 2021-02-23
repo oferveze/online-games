@@ -4,5 +4,5 @@ from django.db import models
 class Player(models.Model):
     username = models.CharField(max_length=15, unique=True)
     game_time = models.DurationField()
-    steps = models.BigIntegerField()
+    flips = models.BigIntegerField()
     finish_at = models.TimeField(auto_now=True)

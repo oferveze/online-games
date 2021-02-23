@@ -1,9 +1,9 @@
-import React, { Fragment, useEffect, useState } from 'react'
+import React, { useState, useEffect } from 'react'
 
 import Card from './Card';
 import Deck from './Deck';
 
-function Board({ updateFlips, pairFound }) {
+function Board({ updateFlips, pairFound, onGameFinished, startOver}) {
     const [deck, setDeck] = useState(Deck());
     const [prevCard, setPrevCard] = useState(null);
 
@@ -20,6 +20,13 @@ function Board({ updateFlips, pairFound }) {
             })
         });
     }
+
+    useEffect(() => {
+        const isGameFinished = deck.every(card => card.matched);
+        if (isGameFinished) {
+            onGameFinished()
+        };
+    }, [deck])
 
     function onCardSelect(card) {
         if (card.matched) {
@@ -68,7 +75,7 @@ function Board({ updateFlips, pairFound }) {
                           isFacedUp={card.matched || card.show}
                           onCardSelect={() => onCardSelect(card)}/>
                 )
-        })}
+            })}
         </div>
     );
 }
