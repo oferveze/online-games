@@ -9,6 +9,7 @@ import Header from './header/Header'
 import Main from './main/Main';
 import Home from './home/home';
 import Contact from './contact/Contact';
+import Leaderboard from './leaderboard/Leaderboard';
 
 class Layout extends Component {
     constructor(props) {
@@ -32,8 +33,11 @@ class Layout extends Component {
                     <Header session={this.session}/>
                     <Switch>
                         <Route path="/" exact component={Home} />
-                        <Route path="/contact" exact component={Contact} />
+                        <Route path="/login" exact component={Home} />
+                        <Route path="/register" exact component={Home} />
                         <Route path="/game" exact component={Main} />
+                        <Route path="/leaderboard" exact component={Leaderboard} />
+                        <Route path="/contact" exact component={Contact} />
                     </Switch>
                 </div>
             </Router>
