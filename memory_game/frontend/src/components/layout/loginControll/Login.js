@@ -24,11 +24,11 @@ function Login(props) {
                 <form onSubmit={onLogin}>
                     <div className="mb-4">
                         <label htmlFor="exampleInputEmail1" className="form-label">Username</label>
-                        <input type="text" name="username" className="form-control" id="username" placeholder="CoolUserName"/>
+                        <input type="text" name="username" className="form-control" id="logusername" placeholder="CoolUserName"/>
                     </div>
                     <div className="mb-4">
                         <label htmlFor="exampleInputPassword1" className="form-label" >Password</label>
-                        <input type="password" name="password" className="form-control" id="exampleInputPassword1" placeholder="StrongPassword"/>
+                        <input type="password" name="password" className="form-control" id="logpassword" placeholder="StrongPassword" autoComplete="on"/>
                     </div>
                     <button type="submit" className="btn btn-primary" style={{float: "right"}}> Login </button>
                 </form>

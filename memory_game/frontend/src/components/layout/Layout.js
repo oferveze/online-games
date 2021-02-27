@@ -20,7 +20,6 @@ import { loadUser } from '../../actions/auth'
 class Layout extends Component {
     constructor(props) {
         super(props);
-        console.log(props);
 
         this.state = {
             session: {

@@ -6,25 +6,28 @@ import {
     AUTH_ERROR,
     LOGIN_SUCCESS,
     LOGIN_FAILED,
-    LOGOUT_SUCCESS
+    LOGOUT_SUCCESS,
+    REGISTER_SUCCESS,
+    REGISTER_FAIL
 } from './types';
 
 export const loadUser = () => (dispatch, getState) => {
+    const token = getState().authReducer.token;
+
+    if (!token) {
+        return;
+    }
+
     dispatch({
         type: USER_LOADING
     });
 
-    const token = getState().authReducer.token;
-
     const options = {
         headers: {
-            'Content-Type': 'application/json'
+            'Content-Type': 'application/json',
+            'Authorization': `Token ${token}`
         }
     };
-
-    if (token) {
-        options.headers['Authorization'] = `Token ${token}`;
-    }
 
     axios.get('auth/user', options)
     .then(respond => {
@@ -37,6 +40,8 @@ export const loadUser = () => (dispatch, getState) => {
         dispatch({
             type: AUTH_ERROR
         });
+
+        console.log(e);
     });
 }
 
@@ -90,5 +95,32 @@ export const logout = () => (dispatch, getState) => {
     })
     .catch(e => {
         console.log(e);
+    });
+}
+
+export const register = (username, password) => dispatch => {
+    dispatch({
+        type: USER_LOADING
+    });
+
+    const options = {
+        headers: {
+            'Content-Type': 'application/json'
+        }
+    };
+
+    const body = JSON.stringify({username, password});
+
+    axios.post('auth/register', body, options)
+    .then(respond => {
+        dispatch({
+            type: REGISTER_SUCCESS,
+            payload: respond.data
+        });
+    })
+    .catch(e => {
+        dispatch({
+            type: REGISTER_FAIL
+        });
     });
 }

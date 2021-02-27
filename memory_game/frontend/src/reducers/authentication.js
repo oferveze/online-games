@@ -4,7 +4,9 @@ import {
     AUTH_ERROR,
     LOGIN_SUCCESS,
     LOGIN_FAILED,
-    LOGOUT_SUCCESS
+    LOGOUT_SUCCESS,
+    REGISTER_SUCCESS,
+    REGISTER_FAIL
 } from '../actions/types';
 
 const TOEKN_LOCAL_STORAGE_KEY = "token";
@@ -32,6 +34,7 @@ export default function(state = initialState, action) {
                 user: action.payload
             };
         }
+        case REGISTER_SUCCESS:
         case LOGIN_SUCCESS: {
             localStorage.setItem(TOEKN_LOCAL_STORAGE_KEY, action.payload.token)
             return {
@@ -42,6 +45,7 @@ export default function(state = initialState, action) {
                 // user: action.payload.data
             };
         }
+        case REGISTER_FAIL:
         case LOGOUT_SUCCESS:
         case LOGIN_FAILED:
         case AUTH_ERROR: {
