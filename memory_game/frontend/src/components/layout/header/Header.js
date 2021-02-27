@@ -1,11 +1,15 @@
 import React, { Component } from 'react'
 import { Link } from 'react-router-dom';
+import { connect } from 'react-redux';
 
 class Header extends Component {
     constructor(props) {
         super(props);
+        console.log(props);
     }
+
     render() {
+        const { isAuthenticated, user } = this.props.authReducer;
         return (
             <nav className="navbar navbar-expand-lg navbar-light header">
                 <Link to='/'>
@@ -16,22 +20,23 @@ class Header extends Component {
                 </button>
                 <div className="collapse navbar-collapse" id="navbarNavAltMarkup">
                     <div className="navbar-nav">
-                        <Link to='/login'>
-                            <div className="nav-item nav-link" href="#">Login <span className="sr-only">(current)</span></div>
-                        </Link>
-                        <Link to='/register'>
-                            <div className="nav-item nav-link" href="#">Register</div>
-                        </Link>
-                        <Link to='/game'>
+                        {isAuthenticated && <Link to='/game'>
                             <div className="nav-item nav-link" href="#">Play!</div>
-                        </Link>
+                        </Link>}
                         <Link to='/leaderboard'>
                             <div className="nav-item nav-link" href="#">Leaderboard</div>
                         </Link>
                         <Link to='/contact'>
                             <div className="nav-item nav-link" href="#">Contact Us!</div>
                         </Link>
-
+                        <div className="login-ctrl-header">
+                            {isAuthenticated ? <Link to='/logout'>
+                                <div className="nav-item nav-link" href="#">Logout<span className="sr-only">(current)</span></div>
+                            </Link> :
+                            <Link to='/logincontrol'>
+                                <div className="nav-item nav-link" href="#">Login / Register<span className="sr-only">(current)</span></div>
+                        </Link>}
+                        </div>
                     </div>
                 </div>
             </nav>
@@ -39,4 +44,8 @@ class Header extends Component {
     }
 }
 
-export default Header;
+const mapStateToProps = state => ({
+    authReducer: state.authReducer
+});
+
+export default connect(mapStateToProps)(Header);

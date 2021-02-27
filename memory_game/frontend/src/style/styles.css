@@ -4,6 +4,7 @@ body, html {
   background-size: cover;
   font-family: sans-serif;
   height: 100%;
+  font-size: 15px;
 }
 
 h1{
@@ -18,6 +19,11 @@ h1{
 table {
   width:100%;
   table-layout: fixed;
+}
+
+.login-ctrl-header {
+  position: absolute;
+  right: 15px;
 }
 
 .leaderboard-table-header {

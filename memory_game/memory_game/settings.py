@@ -42,8 +42,21 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'players',
     'rest_framework',
-    'frontend'
+    'frontend',
+    'knox',
+    'acounts',
 ]
+
+REST_FRAMEWORK = {
+    'DEFAULT_AUTHENTICATION_CLASSES': (
+         'rest_framework.authentication.BasicAuthentication' ,
+         'knox.auth.TokenAuthentication',),
+}
+
+#Authentication backends
+AUTHENTICATION_BACKENDS = (
+        'django.contrib.auth.backends.ModelBackend',
+    )
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',

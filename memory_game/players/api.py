@@ -7,4 +7,10 @@ class PlayerViewSet(viewsets.ModelViewSet):
     premission_classes = [
         permissions.AllowAny
     ]
+
     serializer_class = PlayerSerializer
+
+    def perform_create(self, serializer):
+        serializer.save(owner=self.request.user)
+
+

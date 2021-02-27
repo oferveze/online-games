@@ -1,14 +1,18 @@
 import React, {Fragment, useEffect, useState} from 'react'
 import { connect, useSelector } from 'react-redux';
 import PropTypes from 'prop-types';
-import { getPlayers } from '../../../actions/players';
+import { getPlayers, deletePlayer } from '../../../actions/players';
 
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faTrashAlt } from '@fortawesome/free-solid-svg-icons'
 function Leaderboard(props) {
     useEffect(() => {
-        console.log("Leaderboard is asking for players")
-        console.log("props: ", props);
         props.getPlayers();
     }, [])
+
+    const deletePlayer = (playerId) => {
+        props.deletePlayer(playerId);
+    }
 
     const players = props.players.sort((a,b) => a.flips < b.flips)
     return (
@@ -23,6 +27,7 @@ function Leaderboard(props) {
                             <th>Flips</th>
                             <th>Game Time</th>
                             <th>Date</th>
+                            <th>DELETE ENTRY</th>
                         </tr>
                     </thead>
                 </table>
@@ -37,6 +42,8 @@ function Leaderboard(props) {
                                 <td>{player.flips}</td>
                                 <td>{player.game_time}</td>
                                 <td>{player.finish_at}</td>
+                                {/* user should be able to delte only his own records! and needs to be logged in*/}
+                                <td><FontAwesomeIcon icon={faTrashAlt} onClick={() => deletePlayer(player.id)}/></td>
                             </tr>
                         ))}
                     </tbody>
@@ -54,4 +61,4 @@ const mapStateToProps = state => ({
     players: state.playersReducers.players
 });
 
-export default connect(mapStateToProps, { getPlayers })(Leaderboard);
+export default connect(mapStateToProps, { getPlayers, deletePlayer })(Leaderboard);

@@ -7,8 +7,8 @@ from . import views
 
 urlpatterns = [
     path('', views.index),
-    path('login', views.index),
-    path('register', views.index),
+    path('logincontrol', views.index),
+    path('logout', views.index),
     path('game', views.index),
     path('leaderboard', views.index),
     path('contact', views.index),
