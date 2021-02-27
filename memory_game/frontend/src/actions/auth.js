@@ -124,3 +124,19 @@ export const register = (username, password) => dispatch => {
         });
     });
 }
+
+export const getHttpTokenOptions = getState => {
+    const token = getState().authReducer.token;
+
+    const options = {
+        headers: {
+            'Content-Type': 'application/json'
+        }
+    };
+
+    if (token) {
+        options.headers['Authorization'] = `Token ${token}`;
+    }
+
+    return options;
+}
