@@ -9,6 +9,11 @@ function Main({username}) {
     const [pairsFound, setPairFound] = useState(0);
     const [isGameOver, setIsGameOver] = useState(false);
     const [gameKey, setGameKey] = useState(0);
+    const [gamestarted, setGameStarted] = useState()
+
+    const onFirstCardSelect = () => {
+        setGameStarted(new Date());
+    }
 
     const updateFlips = () => {
         setFlips(flips => flips + 1);
@@ -31,14 +36,16 @@ function Main({username}) {
         setPairFound(0);
     }
 
+    const gameTime = () => Math.round((new Date() - gamestarted) / 1000);
+
     return (
         <Fragment>
-            <div style={{textAlign: 'center'}}>
+            {!isGameOver && <div style={{textAlign: 'center'}}>
                 <span>Playing as <strong>{username}</strong> </span>
                  Flips: <strong>{flips}</strong>  Pairs: <strong>{pairsFound}</strong>
-            </div>
-            {isGameOver && <GameFinished onStartOver={onStartOver}/>}
-            <Board key={gameKey} updateFlips={updateFlips} pairFound={pairFound} onGameFinished={onGameFinished}/>
+            </div>}
+            {isGameOver && <GameFinished onStartOver={onStartOver} username={username} flips={flips} game_time={gameTime()}/>}
+            <Board key={gameKey} updateFlips={updateFlips} pairFound={pairFound} onGameFinished={onGameFinished} onFirstCardSelect={onFirstCardSelect}/>
         </Fragment>
     )
 }

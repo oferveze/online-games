@@ -3,29 +3,27 @@ import { connect } from 'react-redux';
 
 import { createPlayer } from '../../../../actions/players'
 
-function GameFinished({onStartOver, createPlayer}) {
-
+function GameFinished({onStartOver, createPlayer, username, flips, game_time}) {
     const onSubmitScore = () => {
-        console.log("submited score");
-        createPlayer();
+        createPlayer(username, flips, game_time);
     };
 
     return (
-        <Fragment>
+        <div style={{textAlign:"center"}}>
             <h2>
-                Well Done!
+                Well Done <strong>{username}</strong>!
             </h2>
-            {/* <h2>
-                Game took you {} and you've done it in {} flips. <br />
+            <h2>
+                Game took you {game_time} seconds and you've done it in {flips} flips! <br />
             </h2>
             <a className="start-over-btn" onClick={onSubmitScore}>
                 Submit your score?
             </a>
-            <br /> */}
+            <br />
             <a className="start-over-btn" onClick={onStartOver}>
                 Start Over?
             </a>
-        </Fragment>
+        </div>
     )
 }
 

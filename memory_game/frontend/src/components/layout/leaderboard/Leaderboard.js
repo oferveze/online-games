@@ -14,7 +14,8 @@ function Leaderboard(props) {
         props.deletePlayer(playerId);
     }
 
-    const players = props.players.sort((a,b) => a.flips < b.flips)
+    const players = props.players.sort((a,b) => a.flips - b.flips);
+
     return (
         <Fragment>
             <h1>Leaderboard!</h1>
@@ -35,7 +36,7 @@ function Leaderboard(props) {
             <div className="leaderboard-table-content">
                 <table cellPadding="0" cellSpacing="0" border="0">
                     <tbody>
-                        {props.players.map((player, index) => (
+                        {players.map((player, index) => (
                             <tr key={player.id}>
                                 <td>{index + 1}</td>
                                 <td>{player.username}</td>
@@ -43,7 +44,7 @@ function Leaderboard(props) {
                                 <td>{player.game_time}</td>
                                 <td>{player.finish_at}</td>
                                 {/* user should be able to delte only his own records! and needs to be logged in*/}
-                                <td><FontAwesomeIcon icon={faTrashAlt} onClick={() => deletePlayer(player.id)}/></td>
+                                <td ><FontAwesomeIcon icon={faTrashAlt} onClick={() => deletePlayer(player.id)}/></td>
                             </tr>
                         ))}
                     </tbody>

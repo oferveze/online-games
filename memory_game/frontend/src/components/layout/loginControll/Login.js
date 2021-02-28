@@ -9,7 +9,6 @@ function Login(props) {
         e.preventDefault();
         const username = e.target.username.value;
         const password = e.target.password.value;
-        console.log("try to login");
         props.login(username, password);
     }
 

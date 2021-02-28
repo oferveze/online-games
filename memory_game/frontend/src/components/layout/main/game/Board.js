@@ -3,9 +3,10 @@ import React, { useState, useEffect } from 'react'
 import Card from './Card';
 import Deck from './Deck';
 
-function Board({ updateFlips, pairFound, onGameFinished, startOver}) {
+function Board({ updateFlips, pairFound, onGameFinished, onFirstCardSelect}) {
     const [deck, setDeck] = useState(Deck());
     const [prevCard, setPrevCard] = useState(null);
+    const [isFirstCardSelected, setisFirstCardSelected] = useState(false);
 
     function updateDeck(cardIdx, prop, value) {
         setDeck(deck => {
@@ -29,6 +30,11 @@ function Board({ updateFlips, pairFound, onGameFinished, startOver}) {
     }, [deck])
 
     function onCardSelect(card) {
+        if (!isFirstCardSelected) {
+            setisFirstCardSelected(true);
+            onFirstCardSelect();
+        }
+
         if (card.matched) {
             return;
         }

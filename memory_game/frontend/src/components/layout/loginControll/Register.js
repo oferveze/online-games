@@ -9,7 +9,6 @@ function Register(props) {
         e.preventDefault();
         const username = e.target.regusername.value;
         const password = e.target.regpassword.value;
-        console.log("try to register");
         props.register(username, password);
     }
 
