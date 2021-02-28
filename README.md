@@ -13,4 +13,5 @@ In order to play the game do the follwoing:
 6. python3 ./memory_game/manage.py makemigrations
 7. python3 ./memory_game/manage.py migrate
 7. python3 ./memory_game/manage.py runserver
-8. Play And Enjoy! :)
+8. open Browser and surf to - http://localhost:8000/
+9. Play And Enjoy! :)
