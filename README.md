@@ -1,10 +1,15 @@
 # Online Games
 
-Still under development.
-In order to run the game you should:
+This project was made in order to master CSS, React And Django.
 
-pipenv install
-pipenv shell
-python3 ./memory_game/manage.py runserver
+In order to play the game do the follwoing:
 
-Enjoy :)
+1. clone.
+2. npm i
+3. npm build.
+4. pip install pipenv
+5. pipenv shell
+6. python3 ./memory_game/manage.py makemigrations
+7. python3 ./memory_game/manage.py migrate
+7. python3 ./memory_game/manage.py runserver
+8. Play And Enjoy! :)
