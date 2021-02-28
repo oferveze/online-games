@@ -1,6 +1,6 @@
 # Online Games
 
-This project was made in order to master CSS, React And Django.
+This project was made in order to master React And Django.
 
 In order to play the game do the follwoing:
 
