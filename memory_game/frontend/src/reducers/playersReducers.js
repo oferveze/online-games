@@ -1,4 +1,4 @@
-import { GET_PLAYERS, DELETE_PLAYER } from '../actions/types.js'
+import { GET_PLAYERS, DELETE_PLAYER } from '../actions/types.js';
 
 const initialState = {
     players: []

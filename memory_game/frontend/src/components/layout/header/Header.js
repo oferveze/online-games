@@ -3,10 +3,6 @@ import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 
 class Header extends Component {
-    constructor(props) {
-        super(props);
-    }
-
     render() {
         const { isAuthenticated, user } = this.props.authReducer;
         return (
@@ -14,7 +10,9 @@ class Header extends Component {
                 <Link to='/'>
                     <div className="navbar-brand">Memory Game</div>
                 </Link>
-                <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+                <button className="navbar-toggler" type="button" data-toggle="collapse"
+                        data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup"
+                        aria-expanded="false" aria-label="Toggle navigation">
                     <span className="navbar-toggler-icon"></span>
                 </button>
                 <div className="collapse navbar-collapse" id="navbarNavAltMarkup">
@@ -39,7 +37,7 @@ class Header extends Component {
                     </div>
                 </div>
             </nav>
-        )
+        );
     }
 }
 

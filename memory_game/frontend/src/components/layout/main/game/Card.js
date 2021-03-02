@@ -1,6 +1,6 @@
 import React from 'react'
 
-function Card({isFacedUp, img, onCardSelect}) {
+function Card({ isFacedUp, img, onCardSelect }) {
     const cardPath = `/static/frontend/assets/pictures/${img}`;
     const backCardPath = `/static/frontend/assets/pictures/back.png`;
 
@@ -15,7 +15,7 @@ function Card({isFacedUp, img, onCardSelect}) {
                 </div>
             </div>
         </div>
-    )
+    );
 }
 
 export default Card;

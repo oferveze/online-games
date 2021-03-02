@@ -88,7 +88,7 @@ export const logout = () => (dispatch, getState) => {
     const body = null // OMG
 
     axios.post('auth/logout', body, options)
-    .then(respond => {
+    .then(() => {
         dispatch({
             type: LOGOUT_SUCCESS
         });
@@ -122,6 +122,8 @@ export const register = (username, password) => dispatch => {
         dispatch({
             type: REGISTER_FAIL
         });
+
+        console.log(e);
     });
 }
 

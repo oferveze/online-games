@@ -4,12 +4,12 @@ import { connect } from 'react-redux';
 import Board from './game/Board';
 import GameFinished from './game/GameFinished';
 
-function Main({username}) {
+function Main({ username }) {
     const [flips, setFlips] = useState(0);
     const [pairsFound, setPairFound] = useState(0);
     const [isGameOver, setIsGameOver] = useState(false);
     const [gameKey, setGameKey] = useState(0);
-    const [gamestarted, setGameStarted] = useState()
+    const [gameStarted, setGameStarted] = useState()
 
     const onFirstCardSelect = () => {
         setGameStarted(new Date());
@@ -36,7 +36,7 @@ function Main({username}) {
         setPairFound(0);
     }
 
-    const gameTime = () => Math.round((new Date() - gamestarted) / 1000);
+    const gameTime = () => Math.round((new Date() - gameStarted) / 1000);
 
     return (
         <Fragment>

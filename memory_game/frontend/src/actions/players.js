@@ -4,10 +4,10 @@ import { getHttpTokenOptions } from '../actions/auth';
 
 const PLAYERS_URL = '/players/';
 
-export const getPlayers = () => dispach => {
+export const getPlayers = () => dispatch => {
     return axios.get(PLAYERS_URL)
     .then(respond => {
-        dispach({
+        dispatch({
             type: GET_PLAYERS,
             payload: respond.data
         });
@@ -15,21 +15,21 @@ export const getPlayers = () => dispach => {
     .catch(e => console.log(e));
 }
 
-export const deletePlayer = (id) => dispach => {
+export const deletePlayer = (id) => dispatch => {
     return axios.delete(`${PLAYERS_URL}${id}`)
     .then(() => {
-        dispach({
+        dispatch({
             type: DELETE_PLAYER,
             payload: id
         });
 
-        return getPlayers()(dispach);
+        return getPlayers()(dispatch);
     })
     .then(getPlayers)
     .catch(e => console.log(e));
 }
 
-export const createPlayer = (username, flips, game_time) => (dispach, getState) => {
+export const createPlayer = (username, flips, game_time) => (dispatch, getState) => {
     const body = JSON.stringify({
         username,
         flips,
@@ -40,8 +40,8 @@ export const createPlayer = (username, flips, game_time) => (dispach, getState) 
     const options = getHttpTokenOptions(getState);
 
     return axios.post(PLAYERS_URL, body, options)
-    .then((respond) => {
-        dispach({
+    .then(() => {
+        dispatch({
             type: CREATE_PLAYER
         });
     })

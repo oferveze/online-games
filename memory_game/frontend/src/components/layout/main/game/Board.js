@@ -1,12 +1,12 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState, useEffect } from 'react';
 
 import Card from './Card';
 import Deck from './Deck';
 
-function Board({ updateFlips, pairFound, onGameFinished, onFirstCardSelect}) {
+function Board({ updateFlips, pairFound, onGameFinished, onFirstCardSelect }) {
     const [deck, setDeck] = useState(Deck());
     const [prevCard, setPrevCard] = useState(null);
-    const [isFirstCardSelected, setisFirstCardSelected] = useState(false);
+    const [isFirstCardSelected, setIsFirstCardSelected] = useState(false);
 
     function updateDeck(cardIdx, prop, value) {
         setDeck(deck => {
@@ -18,20 +18,20 @@ function Board({ updateFlips, pairFound, onGameFinished, onFirstCardSelect}) {
                 }
 
                 return card;
-            })
+            });
         });
     }
 
     useEffect(() => {
         const isGameFinished = deck.every(card => card.matched);
         if (isGameFinished) {
-            onGameFinished()
+            onGameFinished();
         };
-    }, [deck])
+    }, [deck]);
 
     function onCardSelect(card) {
         if (!isFirstCardSelected) {
-            setisFirstCardSelected(true);
+            setIsFirstCardSelected(true);
             onFirstCardSelect();
         }
 

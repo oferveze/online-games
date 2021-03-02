@@ -1,2 +1,2 @@
 import './style/custom.scss';
-import App from './components/App'
+import App from './components/App';

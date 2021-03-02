@@ -9,12 +9,12 @@ import {
     REGISTER_FAIL
 } from '../actions/types';
 
-const TOEKN_LOCAL_STORAGE_KEY = "token";
+const TOKEN_LOCAL_STORAGE_KEY = "token";
 
 const initialState = {
     isAuthenticated: false,
     isLoading: false,
-    token: localStorage.getItem(TOEKN_LOCAL_STORAGE_KEY),
+    token: localStorage.getItem(TOKEN_LOCAL_STORAGE_KEY),
     user: null
 };
 
@@ -36,7 +36,7 @@ export default function(state = initialState, action) {
         }
         case REGISTER_SUCCESS:
         case LOGIN_SUCCESS: {
-            localStorage.setItem(TOEKN_LOCAL_STORAGE_KEY, action.payload.token)
+            localStorage.setItem(TOKEN_LOCAL_STORAGE_KEY, action.payload.token)
             return {
                 ...state,
                 ...action.payload,
@@ -49,7 +49,7 @@ export default function(state = initialState, action) {
         case LOGOUT_SUCCESS:
         case LOGIN_FAILED:
         case AUTH_ERROR: {
-            localStorage.removeItem(TOEKN_LOCAL_STORAGE_KEY);
+            localStorage.removeItem(TOKEN_LOCAL_STORAGE_KEY);
 
             return {
                 ...state,

@@ -6,7 +6,7 @@ function Home(props) {
             Welcome! <br />
             {props.session.isLoggedIn ? "Great to See you, Start Playing!" : "Wanna play? Please Login or Register!"}
         </div>
-    )
+    );
 }
 
 export default Home;

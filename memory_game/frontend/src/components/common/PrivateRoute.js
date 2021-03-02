@@ -16,15 +16,11 @@ const PrivateRoute = ({component: Component, authReducer, ...rest}) => {
                 }
             }}
         />
-    )
+    );
 }
 
 const mapStateToProps = (state) => ({
     authReducer: state.authReducer
 });
 
-const mapDispatchToProps = {
-
-};
-
-export default connect(mapStateToProps, mapDispatchToProps)(PrivateRoute)
+export default connect(mapStateToProps)(PrivateRoute)

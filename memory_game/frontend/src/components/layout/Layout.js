@@ -62,9 +62,9 @@ const mapStateToProps = (state) => ({
 const mapDispatchToProps = (dispatch) => {
     return {
         loadUser: () => {
-            dispatch(loadUser())
+            dispatch(loadUser());
         }
-    }
+    };
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(Layout);

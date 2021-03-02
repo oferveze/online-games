@@ -19,23 +19,23 @@ function Register(props) {
     return (
         <div>
             <div className="card container" style={{width: "45rem", height: "25rem"}}>
-            <div className="card-body" style={{marginTop: "35px"}}>
-            <h5 className="card-title">Register</h5>
-                <form onSubmit={onRegister}>
-                    <div className="mb-4">
-                        <label htmlFor="exampleInputEmail1" className="form-label">Username</label>
-                        <input type="text" name="regusername" className="form-control" id="regusername" placeholder="CoolUserName"/>
-                    </div>
-                    <div className="mb-4">
-                        <label htmlFor="exampleInputPassword1" className="form-label"> Password </label>
-                        <input type="password" name="regpassword" className="form-control" id="regpassword" placeholder="StrongPassword" autoComplete="on"/>
-                    </div>
-                    <button type="submit" className="btn btn-primary" style={{float: "right"}}> Register </button>
-                </form>
+                <div className="card-body" style={{marginTop: "35px"}}>
+                <h5 className="card-title">Register</h5>
+                    <form onSubmit={onRegister}>
+                        <div className="mb-4">
+                            <label htmlFor="exampleInputEmail1" className="form-label">Username</label>
+                            <input type="text" name="regusername" className="form-control" id="regusername" placeholder="CoolUserName"/>
+                        </div>
+                        <div className="mb-4">
+                            <label htmlFor="exampleInputPassword1" className="form-label"> Password </label>
+                            <input type="password" name="regpassword" className="form-control" id="regpassword" placeholder="StrongPassword" autoComplete="on"/>
+                        </div>
+                        <button type="submit" className="btn btn-primary" style={{float: "right"}}> Register </button>
+                    </form>
+                </div>
             </div>
         </div>
-        </div>
-    )
+    );
 }
 
 

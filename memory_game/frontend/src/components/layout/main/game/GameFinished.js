@@ -24,7 +24,7 @@ function GameFinished({onStartOver, createPlayer, username, flips, game_time}) {
                 Start Over?
             </a>
         </div>
-    )
+    );
 }
 
 const mapDispatchToProps = (dispatch) => {
@@ -32,7 +32,7 @@ const mapDispatchToProps = (dispatch) => {
         createPlayer: (username, flips, game_time) => {
             dispatch(createPlayer(username, flips, game_time))
         }
-    }
+    };
 };
 
 export default connect(null, mapDispatchToProps)(GameFinished);
