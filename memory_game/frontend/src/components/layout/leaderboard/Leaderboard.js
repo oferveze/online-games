@@ -1,5 +1,5 @@
-import React, {Fragment, useEffect, useState} from 'react'
-import { connect, useSelector } from 'react-redux';
+import React, { Fragment, useEffect } from 'react'
+import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import { getPlayers, deletePlayer } from '../../../actions/players';
 

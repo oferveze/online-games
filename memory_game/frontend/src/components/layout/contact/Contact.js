@@ -1,10 +1,17 @@
-import React from 'react'
+import React, { Fragment } from 'react'
 
 function Contact() {
     return (
-        <div>
-            {`Hello World, I'm Ofer Veze!! :)`}
-        </div>
+        <Fragment>
+            <h2>
+                {`Hello World, I'm Ofer Veze!! :)`}
+            </h2>
+            < br/>
+            <h2>
+                {`Wanna Say Hi? Here's my `}
+                <a href='https://www.linkedin.com/in/ofer-bar/'>Linkedin page</a>
+            </h2>
+    </Fragment>
     )
 }
 
