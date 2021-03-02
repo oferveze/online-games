@@ -3,7 +3,7 @@
 This project was made in order to master React And Django,
 which are great to know as FS dev who works with Angular and Node on daily basis :)
 
-In order to play the game do the follwoing:
+In order to play the game do the following:
 
 1. clone.
 2. npm i
